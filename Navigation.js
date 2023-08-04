@@ -2,7 +2,10 @@ import React, {useEffect, useState} from 'react';
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {createStackNavigator} from '@react-navigation/stack';
+import {
+  CardStyleInterpolators,
+  createStackNavigator,
+} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import HomeScreen from './src/screens/HomeScreen';
@@ -19,7 +22,7 @@ const MainTabNavigator = () => {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="HomeTab"
+        name="Home "
         component={HomeScreen}
         options={{
           tabBarIcon: ({color, size}) => (
@@ -83,10 +86,18 @@ const AppNavigator = () => {
           component={MainTabNavigator}
           options={{headerShown: false}} // Hide header for authenticated users
         />
-
         <Stack.Screen name="Login" component={LoginScreen} />
-
-        <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
+        <Stack.Screen
+          name="ProductDetail"
+          component={ProductDetailScreen}
+          options={{
+            cardStyleInterpolator: CardStyleInterpolators.forBottomSheetAndroid,
+            transitionSpec: {
+              open: {animation: 'timing', config: {duration: 400}},
+              close: {animation: 'timing', config: {duration: 400}},
+            },
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

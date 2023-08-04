@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, Text, Image, Button, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome'; // You can import the appropriate icon library
+import {View, Text, Image, Button, StyleSheet} from 'react-native';
 
-const ProductDetailScreen = ({ route }) => {
-  const { product } = route.params;
+const ProductDetailScreen = ({route}) => {
+  const {product} = route.params;
 
   const handleAddToCart = () => {
     // Implement your add to cart logic here
@@ -12,7 +11,7 @@ const ProductDetailScreen = ({ route }) => {
 
   return (
     <View style={styles.container}>
-      <Image source={{ uri: product.thumbnail }} style={styles.thumbnail} />
+      <Image source={{uri: product.thumbnail}} style={styles.thumbnail} />
       <Text style={styles.title}>{product.title}</Text>
       <Text style={styles.description}>{product.description}</Text>
       <Text style={styles.price}>Price: ${product.price.toFixed(2)}</Text>
