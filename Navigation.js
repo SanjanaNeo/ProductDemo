@@ -13,7 +13,7 @@ import CartScreen from './src/screens/CartScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import ProductDetailScreen from './src/screens/ProductDetailScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, ActivityIndicator} from 'react-native';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -74,6 +74,7 @@ const AppNavigator = () => {
   if (loading) {
     return (
       <View style={styles.loading}>
+        <ActivityIndicator size={'large'} color={'grey'} />
         <Text style={styles.loadingTxt}>Loading...</Text>
       </View>
     );

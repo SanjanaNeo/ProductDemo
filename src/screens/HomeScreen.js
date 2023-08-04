@@ -8,7 +8,7 @@ const HomeScreen = ({navigation}) => {
   const getData = async () => {
     let results = await fetch('https://dummyjson.com/products?limit=10');
     results = await results.json();
-    console.log('-----',results.products);
+    console.log('-----', results.products);
     setProductList(results.products);
   };
   useEffect(() => {
@@ -28,11 +28,17 @@ const HomeScreen = ({navigation}) => {
             borderBottomColor: 'black',
             borderBottomWidth: 1,
             marginHorizontal: '5%',
-            flexDirection:'row',
-            alignItems:'center'
+            flexDirection: 'row',
+            alignItems: 'center',
           }}>
-            <Image source={{uri:item.thumbnail}} style={{height:50,width:50,borderRadius:5}} resizeMode='contain'/>
-          <Text style={{paddingLeft:'5%',color:'#000',fontWeight:'bold'}}>{item.title}</Text>
+          <Image
+            source={{uri: item.thumbnail}}
+            style={{height: 50, width: 50, borderRadius: 5}}
+            resizeMode="contain"
+          />
+          <Text style={{paddingLeft: '5%', color: '#000', fontWeight: 'bold'}}>
+            {item.title}
+          </Text>
         </View>
       </TouchableOpacity>
     );

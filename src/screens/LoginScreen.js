@@ -7,7 +7,6 @@ const LoginScreen = ({navigation}) => {
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
-    // For simplicity, we won't perform validation
     if (password && username) {
       await AsyncStorage.setItem('isAuth', 'true');
       navigation.replace('Home');
